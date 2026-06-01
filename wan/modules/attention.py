@@ -205,9 +205,15 @@ def attention(
 
 
 if __name__ == "__main__":
-    q = torch.randn(2, 10, 10, 10).cuda()
-    k = torch.randn(2, 10, 10, 10).cuda()
-    v = torch.randn(2, 10, 10, 10).cuda()
+    bs = 2
+    num_q_heads = 16
+    num_kv_heads = 16
+    q_seq_lens = 1000
+    kv_seq_lens = 800
+    head_dim = 128
+    q = torch.randn(bs, num_q_heads, q_seq_lens, head_dim).cuda()
+    k = torch.randn(bs, num_kv_heads, kv_seq_lens, head_dim).cuda()
+    v = torch.randn(bs, num_kv_heads, kv_seq_lens, head_dim).cuda()
     print("testing attention")
     print(attention(q, k, v))
     print("testing flash_attention")
