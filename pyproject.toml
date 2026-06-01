@@ -27,7 +27,8 @@ dependencies = [
     "dashscope",
     "imageio-ffmpeg",
     "gradio>=5.0.0",
-    "numpy>=1.23.5,<2"
+    "numpy>=1.23.5,<2",
+    "einops>=0.8.2",
 ]
 
 [project.optional-dependencies]
