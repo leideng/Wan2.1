@@ -29,6 +29,7 @@ dependencies = [
     "gradio>=5.0.0",
     "numpy>=1.23.5,<2",
     "einops>=0.8.2",
+    "flash-attn>=2.8.3",
 ]
 
 [project.optional-dependencies]
@@ -65,3 +66,5 @@ profile = "black"
 strict = true
 
 
+[tool.uv.extra-build-dependencies]
+flash-attn = ["torch"]
