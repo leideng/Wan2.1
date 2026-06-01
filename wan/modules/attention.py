@@ -211,9 +211,16 @@ if __name__ == "__main__":
     q_seq_lens = 1000
     kv_seq_lens = 800
     head_dim = 128
-    q = torch.randn(bs, num_q_heads, q_seq_lens, head_dim).cuda()
-    k = torch.randn(bs, num_kv_heads, kv_seq_lens, head_dim).cuda()
-    v = torch.randn(bs, num_kv_heads, kv_seq_lens, head_dim).cuda()
+    """
+    q:              [B, Lq, Nq, C1].
+    k:              [B, Lk, Nk, C1].
+    v:              [B, Lk, Nk, C2]. Nq must be divisible by Nk.
+    q_lens:         [B].
+    k_lens:         [B].
+    """
+    q = torch.randn(bs, q_seq_lens, num_q_heads, head_dim).cuda()
+    k = torch.randn(bs, kv_seq_lens, num_kv_heads, head_dim).cuda()
+    v = torch.randn(bs, kv_seq_lens, num_kv_heads, head_dim).cuda()
     print("testing attention")
     print(attention(q, k, v))
     print("testing flash_attention")
