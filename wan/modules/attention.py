@@ -202,3 +202,16 @@ def attention(
 
         out = out.transpose(1, 2).contiguous()
         return out
+
+
+if __name__ == "__main__":
+    q = torch.randn(2, 10, 10, 10).cuda()
+    k = torch.randn(2, 10, 10, 10).cuda()
+    v = torch.randn(2, 10, 10, 10).cuda()
+    print("testing attention")
+    print(attention(q, k, v))
+    print("testing flash_attention")
+    print(flash_attention(q, k, v))
+    print("testing flash_attention with version 3")
+    print(flash_attention(q, k, v, version=3))
+    print("testing done")
