@@ -114,7 +114,7 @@ def flash_attention(
             softmax_scale=softmax_scale,
             causal=causal,
             deterministic=deterministic)[0].unflatten(0, (b, lq))
-    elif version is None or version == 2 and FLASH_ATTN_2_AVAILABLE:
+    elif (version is None or version == 2) and FLASH_ATTN_2_AVAILABLE:
         assert FLASH_ATTN_2_AVAILABLE
         x = flash_attn.flash_attn_varlen_func(
             q=q,
@@ -131,7 +131,7 @@ def flash_attention(
             causal=causal,
             window_size=window_size,
             deterministic=deterministic).unflatten(0, (b, lq))
-    elif version is None or version == 3 and HF_KERNELS_AVAILABLE:
+    elif (version is None or version == 3) and HF_KERNELS_AVAILABLE:
         fa3_module = get_kernel("kernels-community/flash-attn3", version=1)
         flash_attn_varlen_func = fa3_module.flash_attn_varlen_func
         x = flash_attn_varlen_func(
