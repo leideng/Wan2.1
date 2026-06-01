@@ -37,5 +37,6 @@ Wan2.1-I2V-14B-720P/
 poetry.lock
 uv.lock
 nohup.out
+aligncache_generate.py
 
 *egg-info*/
