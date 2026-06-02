@@ -1,5 +1,6 @@
 python ../../generate.py \
 --task t2v-14B \
 --size 1280*720 \
+--frame_num 161 \
 --ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B \
 --prompt "A drone camera circles around a beautiful historic church built on a rocky outcropping along the Amalfi Coast, the view showcases historic and magnificent architectural details and tiered pathways and patios, waves are seen crashing against the rocks below as the view overlooks the horizon of the coastal waters and hilly landscapes of the Amalfi Coast Italy, several distant people are seen walking and enjoying vistas on patios of the dramatic ocean views, the warm glow of the afternoon sun creates a magical and romantic feeling to the scene, the view is stunning captured with beautiful photography."

@@ -2,4 +2,5 @@ python ../../generate.py \
 --task t2v-14B \
 --size 1280*720 \
 --ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B \
+--frame_num 161 \
 --prompt "A movie trailer featuring the adventures of the 30 year old space man wearing a red wool knitted motorcycle helmet, blue sky, salt desert, cinematic style, shot on 35mm film, vivid colors."
