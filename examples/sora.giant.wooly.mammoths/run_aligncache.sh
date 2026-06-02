@@ -1,1 +1,5 @@
-python ../../aligncache_generate.py --task t2v-14B --size 1280*720 --ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B --prompt "Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly blows in the wind as they walk, snow covered trees and dramatic snow capped mountains in the distance, mid afternoon light with wispy clouds and a sun high in the distance creates a warm glow, the low camera view is stunning capturing the large furry mammal with beautiful photography, depth of field."
+python ../../aligncache_generate.py \
+--task t2v-14B \
+--size 1280*720 \
+--ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B \
+--prompt "Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly blows in the wind as they walk, snow covered trees and dramatic snow capped mountains in the distance, mid afternoon light with wispy clouds and a sun high in the distance creates a warm glow, the low camera view is stunning capturing the large furry mammal with beautiful photography, depth of field."
