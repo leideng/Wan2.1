@@ -1,14 +1,13 @@
-.*
 *.py[cod]
 # *.jpg
-*.jpeg
+#*.jpeg
 # *.png
 *.gif
 *.bmp
 *.mp4
 *.mov
 *.mkv
-*.log
+#*.log
 *.zip
 *.pt
 *.pth
