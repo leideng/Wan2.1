@@ -1,0 +1,1 @@
+python ../../aligncache_generate.py --task t2v-14B --size 1280*720 --ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B --prompt "Stunning young woman with long white-to-purple gradient hair standing in a blooming pink cherry blossom garden, gentle wind blowing her hair, soft natural lighting and dreamy bokeh, hyper-realistic skin and fabric."
