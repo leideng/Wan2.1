@@ -1,0 +1,1 @@
+python ../../generate.py --task t2v-14B --size 1280*720 --ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B --prompt "Beautiful, snowy Tokyo city is bustling. The camera moves through the bustling city street, following several people enjoying the beautiful snowy weather and shopping at nearby stalls. Gorgeous sakura petals are flying through the wind along with snowflakes."
