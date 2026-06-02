@@ -1,0 +1,1 @@
+python ../../aligncache_generate.py  --task t2v-14B --size 1280*720 --ckpt_dir /public/models/Wan-AI/Wan2.1-T2V-14B --prompt "Beautiful young woman with long black hair running joyfully through a golden wheat field holding a big red balloon, wind blowing her hair and dress, bright sunny day with painterly sky, hyper-realistic motion and emotion."
