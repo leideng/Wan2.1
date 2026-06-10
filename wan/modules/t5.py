@@ -142,8 +142,8 @@ class T5FeedForward(nn.Module):
         return x
 
 
-# the name is incorrect; here T5SelfAttention contains both
-# attention and FFN. It should be renamed to T5TransformerBlock.
+# Encoder transformer block (misnamed): self-attention + FFN.
+# Should be renamed to T5EncoderBlock or T5TransformerBlock.
 class T5SelfAttention(nn.Module):
 
     def __init__(self,
@@ -178,6 +178,9 @@ class T5SelfAttention(nn.Module):
         return x
 
 
+# Decoder transformer block (misnamed): masked self-attention, cross-attention
+# to encoder_states, then FFN. The name refers to the extra cross-attn sublayer
+# vs. the encoder block, not to this module being only cross-attention.
 class T5CrossAttention(nn.Module):
 
     def __init__(self,
@@ -315,6 +318,7 @@ class T5Encoder(nn.Module):
         return x
 
 
+# T5Decoder is not used in Wan; leave it here for full T5Model compatibility.
 class T5Decoder(nn.Module):
 
     def __init__(self,
@@ -342,6 +346,8 @@ class T5Decoder(nn.Module):
         self.pos_embedding = T5RelativeEmbedding(
             num_buckets, num_heads, bidirectional=False) if shared_pos else None
         self.dropout = nn.Dropout(dropout)
+        # Each decoder layer must self-attend (causal), cross-attend to the
+        # encoder output, then apply FFN — see T5CrossAttention.
         self.blocks = nn.ModuleList([
             T5CrossAttention(dim, dim_attn, dim_ffn, num_heads, num_buckets,
                              shared_pos, dropout) for _ in range(num_layers)
@@ -472,6 +478,8 @@ def umt5_xxl(**kwargs):
     return _t5('umt5-xxl', **cfg)
 
 
+# Wan inference uses encoder-only UMT5 for text conditioning; the decoder stack
+# in this file exists for full T5Model / checkpoint compatibility.
 class T5EncoderModel:
 
     def __init__(
