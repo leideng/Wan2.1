@@ -108,6 +108,7 @@ class T5Attention(nn.Module):
                              -1) if mask.ndim == 2 else mask.unsqueeze(1)
             attn_bias.masked_fill_(mask == 0, torch.finfo(x.dtype).min)
 
+        #(ldeng) shall we use flash attention here to improve performance?
         # compute attention (T5 does not use scaling)
         attn = torch.einsum('binc,bjnc->bnij', q, k) + attn_bias
         attn = F.softmax(attn.float(), dim=-1).type_as(attn)
