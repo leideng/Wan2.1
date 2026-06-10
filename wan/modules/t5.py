@@ -141,6 +141,8 @@ class T5FeedForward(nn.Module):
         return x
 
 
+# the name is incorrect; here T5SelfAttention contains both
+# attention and FFN. It should be renamed to T5TransformerBlock.
 class T5SelfAttention(nn.Module):
 
     def __init__(self,
